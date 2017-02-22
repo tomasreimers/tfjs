@@ -107,7 +107,7 @@ To create tensor protobufs, we use [tensorjs](https://www.npmjs.com/package/tens
 ```
 const tensorjs = require('tensorjs');
 
-tensorjs.IntTensor([[1, 2], [3, 4]]); // returns a string for the protobuf of the tensor
+tensorjs.intTensor([[1, 2], [3, 4]]); // returns a string for the protobuf of the tensor
 ```
 
 #### Calling the TFJS Session & Run
@@ -147,8 +147,8 @@ Example:
 const sess = new lib.Session(simple_addition_graph);
 const results = sess.run(
   {
-    "x": tensorjs.IntTensor(40),
-    "y": tensorjs.IntTensor(2)
+    "x": tensorjs.intTensor(40),
+    "y": tensorjs.intTensor(2)
   },
   ["output"]
 );
