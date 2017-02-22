@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/tomasreimers/tfjs#readme",
   "dependencies": {
-    "tensorjs": "^0.1.0"
+    "tensorjs": "^0.2.0"
   }
 }
