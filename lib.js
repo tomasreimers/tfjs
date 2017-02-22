@@ -91,7 +91,7 @@ TFJS.for_browser = function (url_for_dir) {
       memoryInitializerPrefixURL: url_for_dir,
       onRuntimeInitialized: function () {
         console.log("Emscripten initialized!");
-        resolve(new TFJS(window.TensorFlowJS));
+        resolve(new TFJS(window.Module));
       }
     };
   });
