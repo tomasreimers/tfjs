@@ -113,6 +113,8 @@ TFJS.for_web_worker = function (url_for_dir) {
 
   let loading_promise = new Promise(function (resolve, reject) {
     self.Module = {
+      // overriding this so that workers can be compiled with webpack, per https://github.com/webpack-contrib/worker-loader
+      ENVIRONMENT: 'WORKER',
       memoryInitializerPrefixURL: url_for_dir,
       onRuntimeInitialized: function () {
         console.log("Emscripten initialized!");
