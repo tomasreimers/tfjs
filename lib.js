@@ -104,6 +104,28 @@ TFJS.for_browser = function (url_for_dir) {
   return loading_promise;
 };
 
+TFJS.for_web_worker = function (url_for_dir) {
+  url_for_dir = url_for_dir || "";
+
+  if (url_for_dir != "" && url_for_dir[url_for_dir.length - 1] != '/') {
+    throw "Path must end in a trailing slash."
+  }
+
+  let loading_promise = new Promise(function (resolve, reject) {
+    self.Module = {
+      memoryInitializerPrefixURL: url_for_dir,
+      onRuntimeInitialized: function () {
+        console.log("Emscripten initialized!");
+        resolve(new TFJS(window.Module));
+      }
+    };
+  });
+
+  importScripts(url_for_dir + "graph_runner.js");
+
+  return loading_promise;
+};
+
 TFJS.for_node = function (path_for_dir) {
   path_for_dir = path_for_dir || "./";
 
