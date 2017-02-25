@@ -118,7 +118,7 @@ TFJS.for_web_worker = function (url_for_dir) {
       memoryInitializerPrefixURL: url_for_dir,
       onRuntimeInitialized: function () {
         console.log("Emscripten initialized!");
-        resolve(new TFJS(window.Module));
+        resolve(new TFJS(self.Module));
       }
     };
   });
